@@ -51,6 +51,16 @@ const classes = useStyles();
               <Link to="/dashboard">Dashboard</Link>
             </ListItemText>
           </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/about">About us</Link>
+            </ListItemText>
+          </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/faqs">FAQs</Link>
+            </ListItemText>
+          </ListItem>
         </List>
       </Drawer>
       <IconButton onClick={() => setOpenDrawer(!openDrawer)}>

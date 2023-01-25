@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import jwt from 'jsonwebtoken'
 import { useHistory } from 'react-router-dom'
 
-const Dashboard = () => {
+const Faqs = () => {
 	
 
 	return (
@@ -13,4 +13,4 @@ const Dashboard = () => {
 	)
 }
 
-export default Dashboard
+export default Faqs;
