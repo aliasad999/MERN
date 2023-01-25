@@ -1,5 +1,15 @@
 # MERN
 fullstack webapp with user authentication
+# installation front-end dependencies
+for fronend related depencies, navigate to client folder
+cd client
+and install all dependencies using
+npm install
+# installation back-end dependencies
+for fronend related depencies, navigate to client folder
+cd client
+and install all dependencies using
+npm install
 # run backend 
 cd server && npm run dev
 # run react frontend
