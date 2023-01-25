@@ -3,8 +3,9 @@ import { users } from '../controllers/Users';
 import mongoose from "mongoose";
 
 export const routes = express.Router();
-
-mongoose.connect('mongodb://localhost:27017/mern')
+const path = 'UniversityPortal'
+const mongoUrl = `mongodb://localhost:27017/${path}`
+mongoose.connect(mongoUrl);
 
 routes.use('/api', async (req: Request, res: Response, next: NextFunction) => {
 
