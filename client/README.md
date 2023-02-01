@@ -10,6 +10,7 @@ make sure to add these env variables.
 2. GOOGLE_CLIENT_SECRET
 3. GITHUB_ID
 4. GITHUB_SECRET
+5. MONGODB_URI (mongodb url for storing users)
 
 ## features
 

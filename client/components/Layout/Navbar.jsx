@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./navbar.module.scss";
 import Link from "next/link";
-import { getSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 function Navbar() {
-  const [session, setSession] = useState(false);
-  useEffect(() => {
-    getSession().then((res) => {
-      if (res) {
-        setSession(true);
-      } else setSession(false);
-    });
-  });
+  const { data: session } = useSession();
   return (
     <header className={styles.header}>
       <Link className={styles.logo} href="/">

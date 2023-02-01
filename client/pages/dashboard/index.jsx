@@ -2,6 +2,7 @@ import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Button from "../../components/ui/Button";
+import Layout from "@/components/Layout/Layout";
 export default function Component() {
   const [session, setSession] = useState();
   const router = useRouter();
@@ -16,10 +17,12 @@ export default function Component() {
   });
   if (session) {
     return (
-      <main className="main">
-        <h2>Welcome {session.user.name}</h2>
-        <Button href="api/auth/signout">Logout</Button>
-      </main>
+      <Layout>
+        <main className="main">
+          <h2>Welcome {session.user.name}</h2>
+          <Button href="api/auth/signout">Logout</Button>
+        </main>
+      </Layout>
     );
   }
 }
