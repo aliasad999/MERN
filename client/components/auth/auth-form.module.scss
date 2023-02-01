@@ -81,6 +81,9 @@
     &:focus {
       outline: none;
     }
+    &:focus:invalid {
+      outline: 2px solid red;
+    }
   }
   .button-box {
     display: flex;

@@ -18,16 +18,16 @@ function AuthForm() {
         {!isSignin && (
           <div>
             <label htmlFor="name">Name</label>
-            <input type="text" name="" id="name" />
+            <input required type="text" name="" id="name" />
           </div>
         )}
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="" id="email" />
+          <input required type="email" name="" id="email" />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" name="" id="password" />
+          <input required type="password" name="" id="password" />
         </div>
         <div className={styles["button-box"]}>
           <button className="button btn-credentials">
