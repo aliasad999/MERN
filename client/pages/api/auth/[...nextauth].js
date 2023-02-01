@@ -1,7 +1,8 @@
 import NextAuth from "next-auth";
-import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import clientPromise from "@/libs/connectdb";
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -32,6 +33,7 @@ export const authOptions = {
       return "/dashboard";
     },
   },
+  adapter: MongoDBAdapter(clientPromise),
 };
 
 export default NextAuth(authOptions);
