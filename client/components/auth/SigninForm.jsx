@@ -1,10 +1,9 @@
 import { signIn } from "next-auth/react";
-import Link from "next/link";
-import React from "react";
-import Layout from "../Layout/Layout";
+import React, { useState } from "react";
 import styles from "./auth-form.module.scss";
-import Hero from "./Hero";
+import Hero from "./FormHero";
 function AuthForm() {
+  const [isSignin, setIsSignin] = useState(true);
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -15,7 +14,13 @@ function AuthForm() {
     <main className={styles.main}>
       <Hero />
       <form onSubmit={handleSubmit} className={styles.form}>
-        <h2>Sign in</h2>
+        <h2>{isSignin ? "Sign in" : "Sign up"}</h2>
+        {!isSignin && (
+          <div>
+            <label htmlFor="name">Name</label>
+            <input type="text" name="" id="name" />
+          </div>
+        )}
         <div>
           <label htmlFor="email">Email</label>
           <input type="email" name="" id="email" />
@@ -25,13 +30,25 @@ function AuthForm() {
           <input type="password" name="" id="password" />
         </div>
         <div className={styles["button-box"]}>
-          <button className="button btn-credentials">Sign in</button>
-          <button onClick={handleClick} className="button btn-google">
+          <button className="button btn-credentials">
+            {isSignin ? "Sign in" : "Sign up"}
+          </button>
+          <button
+            type="button"
+            onClick={handleClick}
+            className="button btn-google"
+          >
             Continue with Google
           </button>
         </div>
         <p>
-          Don't have an account? <Link href="/auth/signup">Sign up</Link>
+          Don't have an account?{" "}
+          <span
+            onClick={() => setIsSignin((prev) => !prev)}
+            className={styles.link}
+          >
+            {isSignin ? "Sign up" : "Sign in"}
+          </span>
         </p>
       </form>
     </main>

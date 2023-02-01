@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./auth-form.module.scss";
-function Hero() {
+function FormHero() {
   return (
     <div className={styles.hero}>
       <div>
@@ -16,4 +16,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default FormHero;

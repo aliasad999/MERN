@@ -98,6 +98,10 @@
     }
   }
 }
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
 @keyframes Animation {
   0% {
     background-position: 10% 0%;
