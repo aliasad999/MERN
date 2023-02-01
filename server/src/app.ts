@@ -29,7 +29,7 @@ export default class app {
     this.app.use('/', routes);
   }
   private listen() {
-    const port = process.env.APP_PORT || 3000
+    const port = process.env.APP_PORT || 3001
     this.app.listen(port, () => console.log(`> Listening on port ${port}`));
   }
 }

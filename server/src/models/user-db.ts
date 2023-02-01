@@ -1,12 +1,13 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
+
 
 const user_db = new mongoose.Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    firstName: { type: String, required: true, trim:true },
+    lastName: { type: String, required: true, trim: true },
+    email: { type: String, required: true, unique: true, trim: true },
     password: { type: String, required: true }
-}, { collection: 'user-data' });
+}, { timestamps : true},  { collection: 'user-data' });
 
-export const model = mongoose.model('userData', user_db);
+export const User = mongoose.model('userData', user_db);
 
 

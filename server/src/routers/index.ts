@@ -1,6 +1,6 @@
 import express, { Response, Request, NextFunction } from 'express'
 import { users } from '../controllers/Users';
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 export const routes = express.Router();
 const path = 'UniversityPortal'

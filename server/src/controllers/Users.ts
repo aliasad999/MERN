@@ -1,6 +1,6 @@
 import ErrorHandler from "../models/errorHandler";
 import { NextFunction, Request, Response, Router } from "express";
-import { model } from "../models/user-db";
+import { User } from "../models/user-db";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
@@ -11,12 +11,12 @@ dotenv.config({
 
 export class users {
   async confirmLogin(req: Request, res: Response) {
-    const user = await model.findOne({
+    const user = await User.findOne({
       email: req.body.email,
     })
 
     if (!user) {
-      return { status: 'error', error: 'Invalid login' }
+      return { status: 'error', error: "Invalid email/Your account doesn't exist" }
     }
 
     const isPasswordValid = await bcrypt.compare(
@@ -39,10 +39,11 @@ export class users {
     }
   }
   async createUser(req: Request, res: Response, next: NextFunction) {
+
     console.log(req.body)
     try {
       const newPassword = await bcrypt.hash(req.body.password, 10)
-      await model.create({
+      await User.create({
         firstName: req.body.firstName,
         lastName : req.body.lastName,
         email: req.body.email,
