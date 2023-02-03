@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
 import {appError} from '../models/appError'
-import { 	StatusCodes, ReasonPhrases } from 'http-status-codes';
+import { 	StatusCodes } from 'http-status-codes';
 
 dotenv.config({
   path: '.env'
