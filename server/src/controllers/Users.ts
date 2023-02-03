@@ -1,9 +1,10 @@
-import ErrorHandler from "../models/errorHandler";
 import { NextFunction, Request, Response, Router } from "express";
 import { model } from "../models/user-db";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv';
+import {appError} from '../models/appError'
+import { 	StatusCodes, ReasonPhrases } from 'http-status-codes';
 
 dotenv.config({
   path: '.env'
@@ -14,16 +15,13 @@ export class users {
     const user = await model.findOne({
       email: req.body.email,
     })
-
     if (!user) {
       return { status: 'error', error: 'Invalid login' }
     }
-
     const isPasswordValid = await bcrypt.compare(
       req.body.password,
       user.password
     )
-
     if (isPasswordValid) {
       const token = jwt.sign(
         {
@@ -32,10 +30,9 @@ export class users {
         },
         'SECRET'
       )
-
-      return res.json({ status: 'ok', user: token })
+      return res.json({ status: StatusCodes.OK, user: token })
     } else {
-      return res.json({ status: 'error', user: false })
+      return res.json({ status: StatusCodes.INTERNAL_SERVER_ERROR, user: false })
     }
   }
   async createUser(req: Request, res: Response, next: NextFunction) {
@@ -48,13 +45,17 @@ export class users {
         email: req.body.email,
         password: newPassword,
       })
-      res.json({ status: 'ok' })
+      res.json({ status: StatusCodes.OK})
     } catch (err) {
-      res.json({ status: 'error', error: 'Duplicate email' })
+      res.json({ status: StatusCodes.NOT_ACCEPTABLE, error: 'Duplicate email' })
     }
 
   }
   getUser(req: Request, res: Response) {
-    return { text: "get call has been made" };
+    throw new appError({
+      httpCode: StatusCodes.NOT_FOUND,
+      description: 'No user exist',
+      isOperational: false
+    })
   }
 }
