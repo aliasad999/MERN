@@ -1,8 +1,6 @@
-
-
 import { Response,Request } from 'express';
 import { appError } from '../models/appError';
-import { 	StatusCodes, ReasonPhrases } from 'http-status-codes';
+import { 	StatusCodes } from 'http-status-codes';
 import {logEvents} from './logger'
 class ErrorHandler {
   private isTrustedError(error: Error): boolean {
@@ -23,7 +21,7 @@ class ErrorHandler {
   }
   private handleCriticalError(err: any,req:Request, response: Response): void {
 	logEvents(`${err.name}: ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`, 'errLog.log')
-	const status = err?.httpCode ? err?.httpCode : 500
+	const status = err?.httpCode ? err?.httpCode : StatusCodes.INTERNAL_SERVER_ERROR
 	response.status(status).json({error: err.message,stack: err.stack})
     
     
