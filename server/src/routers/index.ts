@@ -67,7 +67,7 @@ routes.post('/api/token', async (req, res) => {
 
 routes.post('/api/logout', async (req, res) => {
   const response = await user.updateToken(req.body.email, "");
-  if (response.modifiedCount > 0) res.sendStatus(StatusCodes.NO_CONTENT)
+  if (response.modifiedCount > 0) return res.sendStatus(StatusCodes.NO_CONTENT)
   res.sendStatus(StatusCodes.NOT_MODIFIED)
 })
 
