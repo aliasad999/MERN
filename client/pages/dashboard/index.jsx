@@ -1,8 +1,9 @@
 import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Button from "../../components/ui/Button";
+import Button from "../../components/common/Button";
 import Layout from "@/components/Layout/Layout";
+import Dashboard from "@/components/dashboard/Dashboard";
 export default function Component() {
   const [session, setSession] = useState();
   const router = useRouter();
@@ -14,14 +15,11 @@ export default function Component() {
         setSession(session);
       }
     });
-  });
+  }, []);
   if (session) {
     return (
       <Layout>
-        <main className="main">
-          <h2>Welcome {session.user.name}</h2>
-          <Button href="api/auth/signout">Logout</Button>
-        </main>
+        <Dashboard />
       </Layout>
     );
   }

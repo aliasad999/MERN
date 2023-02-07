@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./auth-page-form.module.scss";
 import ButtonBox from "./ButtonBox";
-import InputBox from "./InputBox";
+import InputBox from "@/components/common/InputBox";
+
 function InputFields({ isSignin, setIsSignin, onSubmit }) {
   const options = {
     required: "This field is required",

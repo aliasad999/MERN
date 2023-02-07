@@ -1,0 +1,12 @@
+@import "@/styles/variables";
+.fields {
+  padding: 2rem;
+  border: 5px solid $color-primary-dark;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+  legend {
+    font-size: 2rem;
+  }
+}

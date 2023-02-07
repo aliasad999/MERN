@@ -10,17 +10,17 @@ function AuthForm() {
     console.log(e);
   }
   return (
-    <div className={styles["form-wrapper"]}>
-      <AuthFormHero />
+    <FormProvider {...methods}>
+      <div className={styles["form-wrapper"]}>
+        <AuthFormHero />
 
-      <FormProvider {...methods}>
         <AuthFormBody
           isSignin={isSignin}
           onSubmit={methods.handleSubmit(onSubmit)}
           setIsSignin={setIsSignin}
         />
-      </FormProvider>
-    </div>
+      </div>
+    </FormProvider>
   );
 }
 
