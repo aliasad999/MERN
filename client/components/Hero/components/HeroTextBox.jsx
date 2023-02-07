@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Button from "../ui/Button";
-import styles from "./hero.module.scss";
+import Button from "../../ui/Button";
+import styles from "./hero-text-box.module.scss";
 const boxVariants = {
   initial: { x: "-100", opacity: 0 },
   animate: {
@@ -13,7 +13,7 @@ const boxVariants = {
 function HeroTextBox() {
   return (
     <motion.div
-      className={styles["hero-textbox"]}
+      className={styles["hero__text-box"]}
       variants={boxVariants}
       initial="initial"
       animate="animate"
