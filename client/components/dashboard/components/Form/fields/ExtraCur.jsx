@@ -3,21 +3,11 @@ import styles from "./fields.module.scss";
 const options = {
   required: "This field is required",
 };
-export default function PersonalInfo() {
+export default function ExtraCur() {
   return (
     <fieldset className={styles.fields}>
-      <legend>Personal Information</legend>
-      <InputBox
-        name="fullName"
-        label="Full Name: "
-        options={{
-          ...options,
-          pattern: {
-            value: /^[a-zA-Z]+(?:[\s.]+[a-zA-Z]+)*$/,
-            message: "No special characters allowed",
-          },
-        }}
-      />
+      <legend>Extra Activities</legend>
+      <InputBox name="activity" label="Activity: " options={options} />
       <InputBox name="email" label="Email: " type="email" options={options} />
       <InputBox
         name="dateOfBirth"

@@ -3,7 +3,7 @@ import styles from "./auth-page-form.module.scss";
 import ButtonBox from "./ButtonBox";
 import InputBox from "@/components/common/InputBox";
 
-function InputFields({ isSignin, setIsSignin, onSubmit }) {
+function Form({ isSignin, setIsSignin, onSubmit }) {
   const options = {
     required: "This field is required",
   };
@@ -16,7 +16,10 @@ function InputFields({ isSignin, setIsSignin, onSubmit }) {
         type="password"
         name="password"
         label="Password"
-        options={options}
+        options={{
+          ...options,
+          ...(!isSignin && { minLength: { value: 10, message: "Too short" } }),
+        }}
       />
       <ButtonBox isSignin={isSignin} />
       <p>
@@ -32,4 +35,4 @@ function InputFields({ isSignin, setIsSignin, onSubmit }) {
   );
 }
 
-export default InputFields;
+export default Form;

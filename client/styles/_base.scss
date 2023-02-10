@@ -3,6 +3,9 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   overflow-x: hidden;
+  @include media-query("lg") {
+    font-size: 55%;
+  }
 }
 body {
   font-size: 1.8rem;

@@ -6,7 +6,7 @@ function KnowledgeSvg() {
       initial={{ opacity: 0, x: 100 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      style={{ width: "35rem", height: "35rem" }}
+      style={{ width: "30rem", height: "30rem" }}
       viewBox="0 0 433 494"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

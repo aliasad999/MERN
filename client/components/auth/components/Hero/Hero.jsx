@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./auth-page-hero.module.scss";
-function FormHero() {
+import styles from "./hero.module.scss";
+function Hero() {
   return (
     <div className={styles.hero}>
       <div className={styles["hero__text-box"]}>
@@ -16,4 +16,4 @@ function FormHero() {
   );
 }
 
-export default FormHero;
+export default Hero;
