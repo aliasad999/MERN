@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Menu from "./components/Menu/Menu";
+import Menu from "./Menu/Menu";
 import Universities from "./Universities";
 import UserInfo from "./UserInfo";
 

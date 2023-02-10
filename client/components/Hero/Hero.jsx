@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./hero.module.scss";
-import HeroTextBox from "./components/HeroTextBox";
+import HeroTextBox from "./HeroTextBox/HeroTextBox";
 import KnowledgeSvg from "../svg/KnowledgeSvg";
 function Hero() {
   return (

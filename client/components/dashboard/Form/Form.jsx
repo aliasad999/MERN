@@ -1,10 +1,8 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import PersonalInfo from "./fields/PersonalInfo";
-import Button from "@/components/common/Button";
-import Attachments from "./fields/Attachments";
+import Button from "@/common/Button";
 import styles from "./form.module.scss";
-import ExtraCur from "./fields/ExtraCur";
+import Fields from "./Fields/Fields";
 function Form() {
   const methods = useForm();
 
@@ -15,9 +13,7 @@ function Form() {
   return (
     <FormProvider {...methods}>
       <form className={styles.form} onSubmit={methods.handleSubmit(onSubmit)}>
-        <PersonalInfo />
-        <ExtraCur />
-        <Attachments />
+        <Fields />
         <Button type="submit">Submit</Button>
       </form>
     </FormProvider>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Button from "../../common/Button";
+import Button from "../../../common/Button";
 import styles from "./hero-text-box.module.scss";
 const boxVariants = {
   initial: { x: "-100", opacity: 0 },

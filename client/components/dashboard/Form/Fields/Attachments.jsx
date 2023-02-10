@@ -1,4 +1,4 @@
-import InputBox from "@/components/common/InputBox";
+import InputBox from "@/common/InputBox";
 import styles from "./fields.module.scss";
 const options = {
   required: "This field is required",

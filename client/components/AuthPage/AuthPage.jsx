@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import styles from "./auth-page.module.scss";
-import Hero from "./components/Hero/Hero";
-import Form from "./components/Form/form";
-function AuthForm() {
+import Hero from "./Hero/Hero";
+import Form from "./Form/form";
+function AuthPage() {
   const methods = useForm();
   const [isSignin, setIsSignin] = useState(true);
   function onSubmit(e) {
@@ -24,4 +24,4 @@ function AuthForm() {
   );
 }
 
-export default AuthForm;
+export default AuthPage;

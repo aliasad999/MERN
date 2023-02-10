@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./auth-page-form.module.scss";
+import styles from "./form.module.scss";
 import ButtonBox from "./ButtonBox";
-import InputBox from "@/components/common/InputBox";
+import InputBox from "@/common/InputBox";
 
 function Form({ isSignin, setIsSignin, onSubmit }) {
   const options = {
