@@ -6,6 +6,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 2rem;
+  @include media-query("xsm") {
+    grid-template-columns: 1fr 1fr;
+  }
   legend {
     font-size: 2rem;
   }

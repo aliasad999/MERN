@@ -1,4 +1,4 @@
-import InputBox from "@/common/InputBox";
+import InputBox from "@/common/InputBox/InputBox";
 import styles from "./fields.module.scss";
 const options = {
   required: "This field is required",
@@ -6,7 +6,7 @@ const options = {
 export default function Attachments() {
   return (
     <fieldset className={styles.fields}>
-      <legend>Attachments</legend>
+      <legend>Attachments*</legend>
       <InputBox
         name="interMarksheet"
         type="file"

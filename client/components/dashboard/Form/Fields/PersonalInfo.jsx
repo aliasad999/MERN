@@ -1,4 +1,4 @@
-import InputBox from "@/common/InputBox";
+import InputBox from "@/common/InputBox/InputBox";
 import styles from "./fields.module.scss";
 const options = {
   required: "This field is required",
@@ -6,7 +6,7 @@ const options = {
 export default function PersonalInfo() {
   return (
     <fieldset className={styles.fields}>
-      <legend>Personal Information</legend>
+      <legend>Personal Information*</legend>
       <InputBox
         name="firtName"
         label="First Name: "
@@ -49,12 +49,6 @@ export default function PersonalInfo() {
         options={{ ...options, minLength: { value: 8, message: "too short" } }}
       />
       <InputBox name="city" label="City: " type="text" options={options} />
-      <InputBox
-        name="school"
-        label="School/College: "
-        type="text"
-        options={options}
-      />
     </fieldset>
   );
 }
