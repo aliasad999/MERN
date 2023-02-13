@@ -1,5 +1,5 @@
-import InputBox from "@/common/InputBox/InputBox";
-import SelectBox from "@/common/InputBox/SelectBox";
+import TextField from "@/common/TextField/TextField";
+import Select from "@/common/Select/Select";
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import { useFormContext } from "react-hook-form";
@@ -24,7 +24,7 @@ const DetailsOlevel = () => {
         animate={{ opacity: 1, y: 0 }}
         className={styles["wrapper-details"]}
       >
-        <SelectBox
+        <Select
           label="Number of Subjects"
           name="numberOfSubjects"
           options={options}
@@ -41,13 +41,13 @@ const DetailsOlevel = () => {
                   exit={{ opacity: 0, y: 10 }}
                   className={styles["subject"]}
                 >
-                  <InputBox
+                  <TextField
                     name={`subject${i + 1}marks`}
                     label={`Subject ${i + 1}`}
                     options={options}
                     type="text"
                   />
-                  <SelectBox
+                  <Select
                     options={options}
                     selectOptions={selectOptions}
                     label="label"

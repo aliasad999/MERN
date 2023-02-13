@@ -1,6 +1,6 @@
-import Input from "@/common/InputBox/Input";
-import InputBox from "@/common/InputBox/InputBox";
-import SelectBox from "@/common/InputBox/SelectBox";
+import Input from "@/common/TextField/Input";
+import InputBox from "@/common/TextField/TextField";
+import SelectBox from "@/common/Select/Select";
 import { useFormContext } from "react-hook-form";
 import DetailsOlevel from "./DetailsOlevel";
 import styles from "./fields.module.scss";

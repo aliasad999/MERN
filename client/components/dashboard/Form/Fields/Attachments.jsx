@@ -1,4 +1,4 @@
-import InputBox from "@/common/InputBox/InputBox";
+import Upload from "@/common/Upload/Input";
 import styles from "./fields.module.scss";
 const options = {
   required: "This field is required",
@@ -7,20 +7,20 @@ export default function Attachments() {
   return (
     <fieldset className={styles.fields}>
       <legend>Attachments*</legend>
-      <InputBox
+      <Upload
         name="interMarksheet"
         type="file"
         label="Inter Mark Sheet"
         options={options}
       />
-      <InputBox
+      <Upload
         name="oLevelsMarksheet"
         type="file"
         label="O Levels Marksheet"
         options={options}
       />
-      <InputBox name="CNIC" type="file" label="CNIC/B-FORM" options={options} />
-      <InputBox
+      <Upload name="CNIC" type="file" label="CNIC/B-FORM" options={options} />
+      <Upload
         name="fatherCNIC"
         type="file"
         label="CNIC Father"

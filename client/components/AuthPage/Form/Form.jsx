@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./form.module.scss";
 import ButtonBox from "./ButtonBox";
-import InputBox from "@/common/InputBox/InputBox";
+import InputBox from "@/common/TextField/TextField";
 
 function Form({ isSignin, setIsSignin, onSubmit }) {
   const options = {

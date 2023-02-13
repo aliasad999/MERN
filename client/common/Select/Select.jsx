@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import BoxWrapper from "./BoxWrapper";
-import Label from "./Label";
+import BoxWrapper from "../BoxWrapper/BoxWrapper";
+import Label from "../BoxWrapper/Label";
 import styles from "./select-box.module.scss";
 function SelectBox({ name, selectOptions, options, label }) {
   const { register } = useFormContext();

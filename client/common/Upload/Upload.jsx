@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
-import BoxWrapper from "./BoxWrapper";
-import Input from "./Input";
+import React from "react";
+import BoxWrapper from "../BoxWrapper/BoxWrapper";
+import Input from "../TextField/Input";
 import Label from "./Label";
 
-function InputBox({ name, options, label, type }) {
+function Upload({ name, options, label }) {
   const [imgSrc, setImgSrc] = useState({
     src: "/svg/camera-icon.svg",
     default: true,
@@ -30,15 +29,10 @@ function InputBox({ name, options, label, type }) {
 
   return (
     <BoxWrapper name={name}>
-      <Label type={type} label={label} name={name} src={imgSrc} />
-      <Input
-        type={type}
-        onChange={handleChange}
-        name={name}
-        options={options}
-      />
+      <Input name={name} onChange={handleChange} options={options} />
+      <Label name={name} src={imgSrc} label={label} />
     </BoxWrapper>
   );
 }
 
-export default InputBox;
+export default Upload;

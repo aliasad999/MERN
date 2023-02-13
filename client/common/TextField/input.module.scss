@@ -9,10 +9,7 @@
   font-size: 1.8rem;
   color: #333;
   transition: all 0.5s;
-  &[type="file"] {
-    display: none;
-    cursor: pointer;
-  }
+
   &:focus,
   &:hover {
     outline: none;
