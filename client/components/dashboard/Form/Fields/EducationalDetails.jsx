@@ -2,7 +2,9 @@ import Input from "@/common/InputBox/Input";
 import InputBox from "@/common/InputBox/InputBox";
 import SelectBox from "@/common/InputBox/SelectBox";
 import { useFormContext } from "react-hook-form";
+import DetailsOlevel from "./DetailsOlevel";
 import styles from "./fields.module.scss";
+import { motion } from "framer-motion";
 const options = {
   required: "This field is required",
 };
@@ -12,8 +14,9 @@ const selectOptions = [
 ];
 export default function EducationalDetails() {
   const { watch } = useFormContext();
+  const certificate = watch("certificate");
   return (
-    <fieldset className={styles.fields}>
+    <motion.fieldset className={`${styles.fields} ${styles["fields__col-3"]}`}>
       <legend>Educational Details*</legend>
       <SelectBox
         label="Degree/Certificate"
@@ -33,6 +36,7 @@ export default function EducationalDetails() {
         type="text"
         options={options}
       />
-    </fieldset>
+      {certificate === "oLevel" && <DetailsOlevel />}
+    </motion.fieldset>
   );
 }

@@ -3,20 +3,23 @@
   width: 100%;
   padding: 0.5rem;
   font-family: inherit;
-  background-color: $color-primary-dark;
-  border: none;
+  background-color: $color-primary;
+  border: 2px solid $color-primary-dark;
   border-radius: 5px;
   font-size: 1.8rem;
   color: #333;
+  transition: all 0.5s;
   &[type="file"] {
     display: none;
     cursor: pointer;
   }
-  &:focus {
+  &:focus,
+  &:hover {
     outline: none;
-    outline: 2px solid $color-secondary;
+    border: 2px solid rgba($color-secondary, 0.6);
   }
   &:focus:invalid {
-    outline: 2px solid $color-error;
+    outline: none;
+    border: 2px solid rgba($color-error, 0.6);
   }
 }

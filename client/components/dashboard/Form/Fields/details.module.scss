@@ -1,0 +1,14 @@
+.wrapper {
+  grid-column: 1/-1;
+  &-details {
+    max-width: 50%;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    .subject {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+}
