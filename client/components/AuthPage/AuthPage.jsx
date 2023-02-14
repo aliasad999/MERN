@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { loginUser, registerUser } from "@/services/auth";
+import { useRouter } from "next/router";
 import styles from "./auth-page.module.scss";
 import Hero from "./Hero/Hero";
 import Form from "./Form/form";
 function AuthPage() {
+  const router = useRouter();
   const methods = useForm();
   const [isSignin, setIsSignin] = useState(true);
-  function onSubmit(e) {
-    console.log(e);
+  useEffect(() => {
+    methods.reset();
+  }, [isSignin]);
+  function onSubmit(data) {
+    if (!isSignin) {
+      registerUser(data).then((data) => {
+        setIsSignin(true);
+      });
+    } else {
+      loginUser(data).then((data) => {
+        window.localStorage.setItem("data", JSON.stringify(data));
+      });
+    }
   }
   return (
     <FormProvider {...methods}>
