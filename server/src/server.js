@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const path = 'UniversityPortal'
-const mongoUrl = `mongodb://localhost:27017/${path}`
+const mongoUrl = `mongodb://127.0.0.1:27017/${path}`
 mongoose.connect(mongoUrl);
 
 const connection = mongoose.connection;

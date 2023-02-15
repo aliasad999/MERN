@@ -14,8 +14,8 @@ dotenv.config({
   path: '.env'
 });
 const collectionPath = 'UniversityPortal'
-const mongoUrl = `mongodb://localhost:27017/${collectionPath}`
-mongoose.connect(mongoUrl);
+const mongoUrl = `mongodb://127.0.0.1:27017/${collectionPath}`
+mongoose.connect(mongoUrl).then(()=>(console.log('server/src/routers/index.ts mongodb connection successful')));
 const user = new users;
 
 const posts = [{ email: 'masood.aliasad@gmail.com', title: 'post 1' }, { email: 'khizar.asad@gmail.com', title: 'post 2' }]
