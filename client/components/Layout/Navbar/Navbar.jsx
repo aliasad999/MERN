@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styles from "./navbar.module.scss";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { getCookie, deleteCookie } from "cookies-next";
+import axios from "axios";
+import { checkAuth } from "@/services/auth";
 function Navbar() {
-  const { data: session } = useSession();
+  const [session, setSession] = useState(false);
+  useEffect(() => {
+    checkAuth().then((res) => (res ? setSession(true) : setSession(false)));
+  }, []);
   return (
     <header className={styles.header}>
       <Link className={styles.logo} href="/">
@@ -26,7 +31,24 @@ function Navbar() {
           </li>
           {session ? (
             <li>
-              <Link href="/api/auth/signout">Logout</Link>
+              <Link
+                href="/"
+                onClick={() => {
+                  axios
+                    .post("http://localhost:3001/api/logout", {
+                      refreshToken: getCookie("refresh"),
+                      email: getCookie("email"),
+                    })
+                    .then((res) => {
+                      deleteCookie("refresh");
+                      deleteCookie("email");
+                      console.log(res);
+                    })
+                    .catch((err) => console.log(err));
+                }}
+              >
+                Logout
+              </Link>
             </li>
           ) : (
             <li>

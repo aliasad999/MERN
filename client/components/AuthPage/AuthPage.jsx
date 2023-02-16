@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import styles from "./auth-page.module.scss";
 import Hero from "./Hero/Hero";
 import Form from "./Form/form";
+import { setCookie } from "cookies-next";
+import axios from "axios";
 function AuthPage() {
   const router = useRouter();
   const methods = useForm();
@@ -12,14 +14,21 @@ function AuthPage() {
   useEffect(() => {
     methods.reset();
   }, [isSignin]);
-  function onSubmit(data) {
+  function onSubmit(userData) {
     if (!isSignin) {
-      registerUser(data).then((data) => {
+      registerUser(userData).then((data) => {
         setIsSignin(true);
       });
     } else {
-      loginUser(data).then((data) => {
-        window.localStorage.setItem("data", JSON.stringify(data));
+      loginUser(userData).then((data) => {
+        console.log(data);
+        setCookie("refresh", data.refreshToken);
+        setCookie("email", userData.email);
+        setCookie("access", data.accessToken);
+        axios.defaults.headers.common[
+          "Authorization"
+        ] = `Bearer ${data.accessToken}`;
+        router.replace("/dashboard");
       });
     }
   }

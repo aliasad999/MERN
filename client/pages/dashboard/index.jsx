@@ -1,19 +1,11 @@
-import { getSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Layout from "@/components/Layout/Layout";
 import Dashboard from "@/components/Dashboard/Dashboard";
+import { useEffect, useState } from "react";
+import { checkAuth } from "@/services/auth";
 export default function Component() {
-  const [session, setSession] = useState();
-  const router = useRouter();
+  const [session, setSession] = useState(false);
   useEffect(() => {
-    getSession().then((session) => {
-      if (!session) {
-        router.push("/");
-      } else {
-        setSession(session);
-      }
-    });
+    checkAuth().then((res) => (res ? setSession(true) : setSession(false)));
   }, []);
   if (session) {
     return (

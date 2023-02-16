@@ -36,7 +36,7 @@ export default function EducationalDetails() {
         type="text"
         options={options}
       />
-      {certificate === "oLevel" && <DetailsOlevel />}
+      {/* {certificate === "oLevel" && <DetailsOlevel />} */}
     </motion.fieldset>
   );
 }

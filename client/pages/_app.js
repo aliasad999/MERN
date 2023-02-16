@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 import { SessionProvider } from "next-auth/react";
 import Head from "next/head";
+import "@/services/axios";
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
