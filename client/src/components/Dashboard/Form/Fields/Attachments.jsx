@@ -1,4 +1,4 @@
-import Upload from "@/common/Upload/Input";
+import Upload from "@/common/Upload/Upload";
 import styles from "./fields.module.scss";
 const options = {
   required: "This field is required",

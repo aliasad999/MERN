@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import BoxWrapper from "../BoxWrapper/BoxWrapper";
-import Input from "../TextField/Input";
+import Input from "./Input";
 import Label from "./Label";
+import svg from "../../../public/svg/camera-icon.svg";
+import { useFormContext } from "react-hook-form";
 function Upload({ name, options, label }) {
   const [imgSrc, setImgSrc] = useState({
-    src: "@../public/svg/camera-icon.svg",
+    src: svg,
     default: true,
   });
   const { trigger } = useFormContext();

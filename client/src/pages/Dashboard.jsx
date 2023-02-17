@@ -3,6 +3,7 @@ import Dashboard from "@/components/Dashboard/Dashboard";
 import { useEffect, useState } from "react";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
+
 export default function Component() {
   const axiosPrivate = useAxiosPrivate();
   const [user, setUser] = useState();
