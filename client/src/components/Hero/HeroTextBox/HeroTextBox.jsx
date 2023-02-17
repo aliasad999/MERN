@@ -24,7 +24,7 @@ function HeroTextBox() {
         impedit nemo, ut et quasi harum fugiat beatae tenetur qui optio tempore
         earum quod. Recusandae nostrum sed adipisci sapiente, fuga totam.
       </motion.p>
-      <Button href="/api/auth/signin">Sign in now</Button>
+      <Button href="/auth/signin">Sign in now</Button>
     </motion.div>
   );
 }

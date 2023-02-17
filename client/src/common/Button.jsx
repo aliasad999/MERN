@@ -4,7 +4,7 @@ import styles from "./button.module.scss";
 function signInButton({ children, href, type, onClick }) {
   if (!type) {
     return (
-      <Link className={styles["btn-signin"]} href={href}>
+      <Link className={styles["btn-signin"]} to={href}>
         {children}
       </Link>
     );

@@ -78,7 +78,7 @@ routes.use('/', (req: Request, res: Response, next: NextFunction) => {
   Jwt.verify(token, process.env.ACCESS_TOKEN_SECRET as string, (err: any, result) => {
     if (err) return res.sendStatus(StatusCodes.FORBIDDEN)
     req.body.tokenObject = result && result;
-    next();
+    res.sendStatus(StatusCodes.OK);
   })
 })
 //----------------------ALL Protected Routes will be written here ---------------------
