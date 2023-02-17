@@ -1,4 +1,3 @@
-import { signIn } from "next-auth/react";
 import React from "react";
 import styles from "./button-box.module.scss";
 function ButtonBox({ isSignin }) {
@@ -7,13 +6,13 @@ function ButtonBox({ isSignin }) {
       <button className={styles.button}>
         {isSignin ? "Sign in" : "Sign up"}
       </button>
-      <button
+      {/* <button
         type="button"
-        onClick={() => signIn("google")}
+        onClick={() =>  }
         className={styles.button}
       >
         Continue with Google
-      </button>
+      </button> */}
     </div>
   );
 }

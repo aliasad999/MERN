@@ -8,8 +8,6 @@
 # testing
 /coverage
 
-
-*package-lock.json*
 # next.js
 /.next/
 /out/
@@ -29,6 +27,6 @@ yarn-error.log*
 
 # local env files
 .env*.local
-.env
+
 # vercel
 .vercel

@@ -2,10 +2,9 @@ import React from "react";
 import BoxWrapper from "../BoxWrapper/BoxWrapper";
 import Input from "../TextField/Input";
 import Label from "./Label";
-
 function Upload({ name, options, label }) {
   const [imgSrc, setImgSrc] = useState({
-    src: "/svg/camera-icon.svg",
+    src: "@../public/svg/camera-icon.svg",
     default: true,
   });
   const { trigger } = useFormContext();

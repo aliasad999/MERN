@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import styles from "./button.module.scss";
 function signInButton({ children, href, type, onClick }) {
   if (!type) {

@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { loginUser, registerUser } from "@/services/auth";
-import { useRouter } from "next/router";
+import { registerUser } from "@/api/auth";
+import { useNavigate } from "react-router-dom";
 import styles from "./auth-page.module.scss";
 import Hero from "./Hero/Hero";
 import Form from "./Form/form";
-import { setCookie } from "cookies-next";
 import axios from "axios";
+import { useAuthContext } from "@/context/AuthProvider";
 function AuthPage() {
-  const router = useRouter();
+  const { loginUser } = useAuthContext();
+  const navigate = useNavigate();
   const methods = useForm();
   const [isSignin, setIsSignin] = useState(true);
   useEffect(() => {
@@ -20,16 +21,7 @@ function AuthPage() {
         setIsSignin(true);
       });
     } else {
-      loginUser(userData).then((data) => {
-        console.log(data);
-        setCookie("refresh", data.refreshToken);
-        setCookie("email", userData.email);
-        setCookie("access", data.accessToken);
-        axios.defaults.headers.common[
-          "Authorization"
-        ] = `Bearer ${data.accessToken}`;
-        router.replace("/dashboard");
-      });
+      loginUser(userData);
     }
   }
   return (

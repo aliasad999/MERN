@@ -1,8 +1,8 @@
 import AuthPage from "@/components/AuthPage/AuthPage";
 import React from "react";
 
-function signin() {
+function Signin() {
   return <AuthPage />;
 }
 
-export default signin;
+export default Signin;
