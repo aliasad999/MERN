@@ -1,21 +1,22 @@
 import express, { Response, Request, NextFunction, request, response } from 'express'
 import { users } from '../controllers/Users';
-import mongoose from "mongoose";
+
 import path from 'path'
 import {errorHandler} from '../middleware/errorHandler';
 import Jwt from 'jsonwebtoken'
 export const routes = express.Router();
 import dotenv from 'dotenv';
 import { Accesstoken } from '../config/Authentication/auth'
+import { MongoDb } from '../config/mongodb/mongo'
 import { StatusCodes } from 'http-status-codes';
 
 let tokenList: string[] = []
 dotenv.config({
   path: '.env'
 });
-const mongoUrl = process.env.MONGO_DB_URL
-mongoose.connect(mongoUrl);
+
 const user = new users;
+MongoDb.connectDb(process.env.MONGO_DB_URL)
 
 const posts = [{ email: 'masood.aliasad@gmail.com', title: 'post 1' }, { email: 'khizar.asad@gmail.com', title: 'post 2' }]
 
