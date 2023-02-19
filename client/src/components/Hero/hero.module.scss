@@ -1,0 +1,8 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6rem;
+  &-imgbox {
+    justify-self: end;
+  }
+}

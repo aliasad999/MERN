@@ -1,0 +1,35 @@
+$color-primary: #ffff;
+$color-text: #1c3e5e;
+$color-secondary: #5fce80;
+$color-primary-dark: #f0f0f0;
+$color-error: #cc0000;
+@media only screen and (max-width: 62.5em) {
+}
+@mixin media-query($size) {
+  @if $size == "lg" {
+    @media only screen and (max-width: 75em) {
+      // 1200px
+      @content;
+    }
+  } @else if $size == "md" {
+    @media only screen and (max-width: 62.5em) {
+      // 1000 px
+      @content;
+    }
+  } @else if $size == "sm" {
+    @media only screen and (max-width: 50em) {
+      // 800 px
+      @content;
+    }
+  } @else if $size == "xsm" {
+    @media only screen and (max-width: 37.5em) {
+      // 600 px
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $size) {
+      // any value
+      @content;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+.form-wrapper {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 100%;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}

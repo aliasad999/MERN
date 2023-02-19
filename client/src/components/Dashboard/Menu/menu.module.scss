@@ -1,0 +1,17 @@
+@import "@/styles/variables";
+.menu {
+  &__list {
+    display: flex;
+    gap: 2rem;
+    li {
+      background-color: $color-primary-dark;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      &.active {
+        background-color: $color-secondary;
+        color: white;
+      }
+    }
+  }
+}

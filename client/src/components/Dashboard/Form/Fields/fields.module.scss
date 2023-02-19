@@ -1,0 +1,18 @@
+@import "@/styles/variables";
+.fields {
+  padding: 2rem;
+  border: 5px solid $color-primary-dark;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+  &__col-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include media-query("xsm") {
+    grid-template-columns: 1fr 1fr;
+  }
+  legend {
+    font-size: 2rem;
+  }
+}
