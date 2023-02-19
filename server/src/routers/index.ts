@@ -13,8 +13,7 @@ let tokenList: string[] = []
 dotenv.config({
   path: '.env'
 });
-const collectionPath = 'UniversityPortal'
-const mongoUrl = `mongodb://localhost:27017/${collectionPath}`
+const mongoUrl = process.env.MONGO_DB_URL
 mongoose.connect(mongoUrl);
 const user = new users;
 
