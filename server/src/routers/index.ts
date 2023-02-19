@@ -16,7 +16,8 @@ dotenv.config({
 });
 
 const user = new users;
-MongoDb.connectDb(process.env.MONGO_DB_URL)
+const url = process.env.MONGO_DB_URL || process.env.MONGO_DB_LOCAL
+MongoDb.connectDb(url)
 
 const posts = [{ email: 'masood.aliasad@gmail.com', title: 'post 1' }, { email: 'khizar.asad@gmail.com', title: 'post 2' }]
 
@@ -78,7 +79,7 @@ routes.use('/', (req: Request, res: Response, next: NextFunction) => {
   Jwt.verify(token, process.env.ACCESS_TOKEN_SECRET as string, (err: any, result) => {
     if (err) return res.sendStatus(StatusCodes.FORBIDDEN)
     req.body.tokenObject = result && result;
-    res.sendStatus(StatusCodes.OK);
+    next()
   })
 })
 //----------------------ALL Protected Routes will be written here ---------------------
