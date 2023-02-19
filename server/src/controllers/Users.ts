@@ -50,7 +50,7 @@ export class users {
       })
       res.json({ status: StatusCodes.OK})
     } catch (err) {
-      res.json({ status: StatusCodes.NOT_ACCEPTABLE, error: 'Duplicate email' })
+      res.json({ status: StatusCodes.NOT_ACCEPTABLE, error: 'Duplicate email',message: err })
     }
 
   }
