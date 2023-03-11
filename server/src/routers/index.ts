@@ -19,7 +19,6 @@ const user = new users;
 const url = process.env.MONGO_DB_URL || process.env.MONGO_DB_LOCAL
 MongoDb.connectDb(url)
 
-const posts = [{ email: 'masood.aliasad@gmail.com', title: 'post 1' }, { email: 'khizar.asad@gmail.com', title: 'post 2' }]
 
 //----------------------ALL Public Routes will be written here ---------------------
 //default route .. homepage
@@ -84,20 +83,12 @@ routes.use('/', (req: Request, res: Response, next: NextFunction) => {
 })
 //----------------------ALL Protected Routes will be written here ---------------------
 // check if autentication is working, using local model
-routes.get('/post', (req, res, next) => {
-  const post = posts.filter((post) => post.email === req.body.tokenObject.email)
-  return res.json(post)
+// update Education
+routes.put('/api/education', async (req, res, next) => {
+  const response = req.body.matric !== undefined ? await user.updateMatricEducation(req, res) : await user.updateIntermediateEducation(req, res)
+  return res.json(response)
 })
 
-// route for testing error handler
-routes.get('/getusers', async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    let result = user.getUser(req, res);
-    res.status(StatusCodes.OK).json(result);
-  } catch (error: any) {
-    next(error);
-  }
-})
 
 // 404 view route, in case no path matches
 routes.all('*', (req: Request, res: Response) => {
